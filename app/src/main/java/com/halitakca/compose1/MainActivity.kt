@@ -43,6 +43,16 @@ class MainActivity : ComponentActivity() {
             CustomText(text = "Android")
             Spacer(modifier = Modifier.padding(5.dp))
             CustomText(text = "Kotlin")
+
+            Row (modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+                    ){
+                CustomText(text = "Test 1")
+                CustomText(text = "Test 2")
+                CustomText(text = "Test 3")
+
+            }
         }
     }
 
@@ -54,7 +64,7 @@ fun CustomText(text: String){
         .clickable {
             println("Hello Halit Clicked!")
         }
-        .width(150.dp)
+        //.width(150.dp)
         //.height(20.dp)
         //.size(width = 40.dp, height = 100.dp)
         //.fillMaxSize(0.5f)
