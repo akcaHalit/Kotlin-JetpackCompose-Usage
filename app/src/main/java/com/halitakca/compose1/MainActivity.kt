@@ -31,10 +31,25 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun MainScreen(){
         Column {
-            //  CustomText("Halit") I can not do this. The problem.
+            CustomText(text = "Halit")
             Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
         }
     }
+
+@Composable
+fun CustomText(text: String){
+    Text(modifier = Modifier
+        .background(color = Color.Yellow)
+        .padding(start = 10.dp, top = 5.dp, end = 13.dp)
+        .clickable {
+            println("Hello Halit Clicked!")
+        }
+        //.width(250.dp)
+        //.height(20.dp)
+        .size(width = 40.dp, height = 100.dp)
+        //.fillMaxSize(0.5f)
+        ,text = "Hello $text",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)
+}
 
     //      Preview'ın altında ne yazıyorsa Preview'da görünecek O'dur.  onCreate ile bir alakası yok yani.
     @Preview(showBackground = true)
@@ -46,20 +61,7 @@ class MainActivity : ComponentActivity() {
             Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
         }
 
-    @Composable
-    fun CustomText(text: String){
-        Text(modifier = Modifier
-        .background(color = Color.Yellow)
-        .padding(start = 10.dp, top = 5.dp, end = 13.dp)
-        .clickable {
-            println("Hello Halit Clicked!")
-        }
-        //.width(250.dp)
-        //.height(20.dp)
-        .size(width = 40.dp, height = 100.dp)
-        //.fillMaxSize(0.5f)
-        ,text = "Hello $text",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)
-    }
+
 
 
 
