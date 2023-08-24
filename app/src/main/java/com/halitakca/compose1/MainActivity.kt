@@ -5,10 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -33,7 +30,10 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MainScreen(){
-        Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+        Column {
+            //  CustomText("Halit") I can not do this. The problem.
+            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+        }
     }
 
     //      Preview'ın altında ne yazıyorsa Preview'da görünecek O'dur.  onCreate ile bir alakası yok yani.
@@ -42,28 +42,39 @@ class MainActivity : ComponentActivity() {
     fun DefaultPreview() {
 
         // Column Row Box
-
         Column{
-            Text(modifier = Modifier.background(color = Color.Yellow)
-                .padding(start = 10.dp, top = 5.dp, end = 13.dp)
-                .clickable {
-                           println("Hello Halit Clicked!")
-                }
-                ,text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
             Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
         }
+
+    @Composable
+    fun CustomText(text: String){
+        Text(modifier = Modifier
+        .background(color = Color.Yellow)
+        .padding(start = 10.dp, top = 5.dp, end = 13.dp)
+        .clickable {
+            println("Hello Halit Clicked!")
+        }
+        //.width(250.dp)
+        //.height(20.dp)
+        .size(width = 40.dp, height = 100.dp)
+        //.fillMaxSize(0.5f)
+        ,text = "Hello $text",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)
+    }
+
+
+
         /*
-        Row{
-            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
-            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
-        }
-         */
+Row{
+    Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+    Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+}
+ */
     }
-    /* LAMBDA
-    fun test1(int: Int, myFunction: () -> Unit){
-        myFunction.invoke()
-    }
-     */
+/* LAMBDA
+fun test1(int: Int, myFunction: () -> Unit){
+    myFunction.invoke()
+}
+ */
 /*
     @Composable
     fun Greeting(name: String) {
