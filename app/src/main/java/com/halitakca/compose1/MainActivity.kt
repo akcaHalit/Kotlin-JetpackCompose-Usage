@@ -3,6 +3,8 @@ package com.halitakca.compose1
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -34,9 +36,17 @@ class MainActivity : ComponentActivity() {
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
-        Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
-        Text(text = "Hello WORLD",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
-        // Bu problemi çözmem lazım.
+
+        // Column Row Box
+
+        Column{
+            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+        }
+        Row{
+            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+        }
     }
     /* LAMBDA
     fun test1(int: Int, myFunction: () -> Unit){
