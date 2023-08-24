@@ -10,9 +10,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -30,9 +32,17 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MainScreen(){
-        Column {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             CustomText(text = "Halit")
-            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
+            Spacer(modifier = Modifier.padding(5.dp))
+            CustomText(text = "Android")
+            Spacer(modifier = Modifier.padding(5.dp))
+            CustomText(text = "Kotlin")
         }
     }
 
@@ -44,11 +54,15 @@ fun CustomText(text: String){
         .clickable {
             println("Hello Halit Clicked!")
         }
-        //.width(250.dp)
+        .width(150.dp)
         //.height(20.dp)
-        .size(width = 40.dp, height = 100.dp)
+        //.size(width = 40.dp, height = 100.dp)
         //.fillMaxSize(0.5f)
-        ,text = "Hello $text",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)
+        ,text = "Hello $text",
+        color = Color.Blue,
+        fontSize = 25.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center)
 }
 
     //      Preview'ın altında ne yazıyorsa Preview'da görünecek O'dur.  onCreate ile bir alakası yok yani.
@@ -56,10 +70,7 @@ fun CustomText(text: String){
     @Composable
     fun DefaultPreview() {
 
-        // Column Row Box
-        Column{
-            Text(text = "Hello Halit",color = Color.Blue, fontSize = 25.sp, fontWeight = FontWeight.Bold)//color = MaterialTheme.colors.onSecondary
-        }
+        MainScreen()
 
 
 
